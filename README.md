@@ -1,5 +1,3 @@
-Viewed basic-06-unit-fetch-api.html:1-392
-
 針對 **`basic-06-unit-fetch-api` (JavaScript 非同步編程：Fetch API 基礎)** 單元，這是學員從「靜態網頁」跨向「動態交互應用」的技術分水嶺。它要求學員具備 **非同步編程 (Asynchronous Programming)** 的思維，學習如何優雅地處理背景請求、解析 JSON 數據，並實作具備 **「容錯能力 (Resilience)」** 的強韌通訊模組，以應對不穩定的物聯網網路環境。
 
 以下是在 **GitHub Classroom** 部署其作業 (Assignments) 的具體建議：
