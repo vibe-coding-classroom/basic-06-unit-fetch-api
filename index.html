@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API Mastery | Dynamic & Robust Web App</title>
+    <meta name="description" content="Learn Asynchronous Programming with Fetch API - GET, POST, and Robustness handling.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1 id="main-title">Fetch API <span class="gradient-text">Mastery</span></h1>
+            <p class="subtitle">Asynchronous Programming & Robust Communication</p>
+        </header>
+
+        <main>
+            <!-- Task 1: Dynamic Dashboard (GET) -->
+            <section id="dashboard-section" class="glass-card">
+                <div class="section-header">
+                    <h2><span class="icon">📊</span> Dynamic Dashboard</h2>
+                    <button id="refresh-btn" class="primary-btn">
+                        <span class="btn-text">Refresh Data</span>
+                        <span class="btn-loader hidden"></span>
+                    </button>
+                </div>
+                <div id="data-container" class="data-grid">
+                    <!-- Cards will be injected here -->
+                    <div class="placeholder-msg">Click refresh to load dynamic data...</div>
+                </div>
+                <div id="dashboard-status" class="status-msg hidden"></div>
+            </section>
+
+            <!-- Task 2: Bulletin Board (POST) -->
+            <section id="bulletin-section" class="glass-card">
+                <div class="section-header">
+                    <h2><span class="icon">📝</span> Bulletin Board</h2>
+                </div>
+                <form id="post-form" class="post-form">
+                    <div class="form-group">
+                        <label for="post-title">Title</label>
+                        <input type="text" id="post-title" name="title" placeholder="Enter message title..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="post-body">Content</label>
+                        <textarea id="post-body" name="body" placeholder="Share your thoughts..." required></textarea>
+                    </div>
+                    <button type="submit" id="submit-btn" class="accent-btn">
+                        <span class="btn-text">Post Message</span>
+                        <span class="btn-loader hidden"></span>
+                    </button>
+                </form>
+                <div id="post-status" class="status-msg hidden"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Asynchronous Programming Unit | <a href="docs/Network.md">Network Lab Docs</a></p>
+        </footer>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="main.js"></script>
+</body>
+</html>

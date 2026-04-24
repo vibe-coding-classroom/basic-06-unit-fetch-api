@@ -1,0 +1,64 @@
+name: GitHub Classroom Autograding
+on: [push]
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  build:
+    name: Autograding
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check File Structure
+        id: file-structure
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: File Structure
+          setup-command: ""
+          command: "ls index.html main.js style.css docs/Network.md"
+          timeout: 10
+          max-score: 25
+
+      - name: Check GET Logic
+        id: get-logic
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: GET Logic Implementation
+          setup-command: ""
+          command: "grep -E 'fetch\\(.*\\)' main.js && grep -E 'res\\.json\\(\\)' main.js"
+          timeout: 10
+          max-score: 25
+
+      - name: Check POST Logic
+        id: post-logic
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: POST Logic Implementation
+          setup-command: ""
+          command: "grep 'POST' main.js && grep 'application/json' main.js"
+          timeout: 10
+          max-score: 25
+
+      - name: Check Robustness
+        id: robustness
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Robustness Logic
+          setup-command: ""
+          command: "grep 'res\\.ok' main.js && grep 'AbortController' main.js"
+          timeout: 10
+          max-score: 25
+
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          FILE-STRUCTURE_RESULTS: "${{steps.file-structure.outputs.result}}"
+          GET-LOGIC_RESULTS: "${{steps.get-logic.outputs.result}}"
+          POST-LOGIC_RESULTS: "${{steps.post-logic.outputs.result}}"
+          ROBUSTNESS_RESULTS: "${{steps.robustness.outputs.result}}"
+        with:
+          runners: file-structure,get-logic,post-logic,robustness
